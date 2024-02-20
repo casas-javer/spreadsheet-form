@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario HTML</title>
+</head>
+<body>
+    <h2>Formulario de contacto</h2>
+    <form name="submit-form">
+      <input name="nombres" type="text" placeholder="Nombres" required>
+      <input name="apellidos" type="text" placeholder="Apellidos" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input type="tel" placeholder="Teléfono*" id="Telefono" maxlength="40"
+      name="Telefono" size="20" class="form-control rounded-0 py-2"
+      pattern="^\d{8,10}$"
+      title="El teléfono debe tener solo números, mínimo 8 caracteres y máximo 10"
+      required="">
+      <button type="submit">Enviar</button>
+    </form>
+
+    <!-- <form name="submit-form" method="POST" id="my-form"
+    action="https://script.google.com/macros/s/AKfycbxnUBU4D-Gy6qEpgGscrWnr4V3gHXTPm0rNpLH5r9Kwb6H9svO1kMzfQ6APa90PjQF5/exec">
+
+    <div class="row m-auto formulario px-xs-5">
+
+        <div class="col-md-6 mb-2">
+            <div class="form-group">
+                 <label style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">Nombre</label> 
+                <input placeholder="Nombre*" id="Nombre" maxlength="40" name="Nombre"
+                    size="20" type="text" class="form-control rounded-0 py-2"
+                    pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+                    title="El nombre no debe estar vacio y solo acepta letras y espacios en blanco"
+                    required="">
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-2">
+            <div class="form-group">
+                 <label style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">Apellido</label> 
+                <input placeholder="Apellido" id="Apellido" maxlength="80"
+                    name="Apellido" size="20" type="text"
+                    class="form-control rounded-0 py-2">
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-2">
+            <div class="form-group">
+              <label style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">Correo</label>
+                <input placeholder="Correo*" id="Email" maxlength="80" name="Email"
+                    size="80" type="email" class="form-control rounded-0 py-2"
+                    title="Email no valido"
+                    pattern="^[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+                    required="">
+
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-2">
+            <div class="form-group">
+                 <label style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">Teléfono&nbsp;</label> 
+                <input type="tel" placeholder="Teléfono*" id="Telefono" maxlength="40"
+                    name="Telefono" size="20" class="form-control rounded-0 py-2"
+                    pattern="^\d{8,10}$"
+                    title="El teléfono debe tener solo números, mínimo 8 caracteres y máximo 10"
+                    required="">
+            </div>
+        </div>
+        <div class="col-md-12 mb-2">
+            <div class="form-group">
+                 <label style="color: rgb(0, 0, 0); font-size: 16px; font-weight: normal;">Teléfono&nbsp;</label> 
+                <input type="number" min="999" max="999999" placeholder="Código postal*"
+                    id="codigopostal" maxlength="40" name="CP" size="20"
+                    class="form-control rounded-0 py-2" pattern="^\d{1,6}$"
+                    title="El Código postal debe tener solo números, mínimo 8 caracteres y máximo 10"
+                    required="">
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-2">
+
+            <div class="g-recaptcha"
+                data-sitekey="6Lcg2vQZAAAAAHpqmf6Pj_-t-doxKr1iwLWfQuWQ"></div>
+
+            <br>
+
+            <button type="submit" name="submit" class="btn btn-primary button">
+                ENVIAR MIS DATOS
+            </button>
+        </div>
+
+        <div class="col-md-12">
+            <h6 style="margin-bottom: 15px;"><a
+                    href="https://www.javer.com.mx/terminos-y-condiciones"
+                    target="_Blank"
+                    style="color: white; transition-property: all; font-size: 14px;"
+                    class="d-block mb-3">*Aplican
+                    términos y condiciones</a>
+
+                <a href="https://www.javer.com.mx/aviso-clientes-queretaro"
+                    target="_Blank"
+                    style="color: white; transition-property: all; font-size: 14px;">*Ver
+                    aviso de privacidad</a>
+            </h6>
+
+        </div>
+    </div>
+</form> -->
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwkE5upoQHGsJn1CeEgzcPJOwOXVhKStvm3Q-jd1s0YW7zyEivi1eks-yV4EwV3DtnN/exec'
+      const form = document.forms['submit-form']
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+</body>
+</html>
